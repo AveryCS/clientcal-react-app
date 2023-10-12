@@ -1,6 +1,12 @@
+import { useState } from "react";
+
+
 function ListGroup() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Daphne"];
   //.map in JS takes items in an array and maps them to a variable
+
+  const[selectedIndex, setSelectedIndex]  = useState(-1)
+
 
 
   return (
@@ -15,10 +21,10 @@ function ListGroup() {
           //TODO - each item needs a key (unique ID). Once the data is pulled in,
           //the item in curly braces should be changed to the item ID
           <li
-            className="list-group-item"
+            className={selectedIndex === index ? 'list-group-item active' :'list-group-item'}
             key={item}
             //TODO change this to where when you click on it, it shows the client
-            onClick={() => console.log(item, index)}
+            onClick={() => {setSelectedIndex(index);}}
           >
             {item}
           </li>
