@@ -8,6 +8,18 @@ const HomeView = () => {
   return (
     <div>
       <h2>Home</h2>
+
+      <div>
+        <Link to="/single-client">
+          <div className="box">Select Client</div>
+        </Link>
+        <Link to="/add-client">
+          <div className="box">Add New Client</div>
+        </Link>
+        <Link to="/create-report">
+          <div className="box">Generate Report</div>
+        </Link>
+      </div>
     
     </div>
   );
