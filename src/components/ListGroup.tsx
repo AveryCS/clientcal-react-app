@@ -1,17 +1,22 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 
+interface Props {
+  items: string [];
+  heading: string;
+}
 
-function ListGroup() {
-  let items = ["New York", "San Francisco", "Tokyo", "London", "Daphne"];
+function ListGroup({items, heading}: Props) {
+ 
   //.map in JS takes items in an array and maps them to a variable
 
   const[selectedIndex, setSelectedIndex]  = useState(-1)
 
 
 
-  return (
-    <>
-      <h1>List</h1>
+   return (
+     <>
+       <h1>Cities</h1>
       {items.length === 0 && <p>No item found</p>}
       <ul className="list-group">
         {
@@ -29,8 +34,12 @@ function ListGroup() {
             {item}
           </li>
         ))}
-      </ul>
+      </ul>  
     </>
   );
+
+
+  
+
 }
 export default ListGroup;
