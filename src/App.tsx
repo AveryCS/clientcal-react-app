@@ -4,6 +4,7 @@ import HomeView from './components/HomeView';
 import SingleClientView from './components/SingleClientView';
 import AddClientView from './components/AddClientView';
 import CreateReportView from './components/CreateReportView';
+import SuccessfulAddClientView from './components/SuccessfulAddClientView';
 
 function App() {
   return (
@@ -13,6 +14,8 @@ function App() {
         <Route path="/single-client/:id" element={<SingleClientView />} />
         <Route path="/add-client" element={<AddClientView />} />
         <Route path="/create-report" element={<CreateReportView />} />
+        <Route path="/successful-add-client" element={<SuccessfulAddClientView />} />
+
       </Routes>
     </Router>
   );
