@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-  padding: 10px 20px;
+  padding: 20px 40px;
   margin: 0 10px;
   background-color: #3498db;
   color: #fff;
@@ -15,3 +15,5 @@ const StyledButton = styled.button`
 `;
 
 export default StyledButton;
+
+

@@ -3,6 +3,7 @@ import StyledButton from './styledcomponents/StyledButton';
 import { Link } from 'react-router-dom';
 import { ButtonContainer } from './styledcomponents/HomeViewStyles';
 import NavBar from './NavBar';
+import './CreateReportView.css';
 
 interface Client {
   id: number;
@@ -17,18 +18,19 @@ interface Client {
 const CreateReportView: React.FC = () => {
   
   return (
-    <div><NavBar /> 
-    <ButtonContainer>
+    <div className= "create-report-nav-bar"><NavBar /> 
+    <h3 className="report-center">Report Center</h3>
+    <ButtonContainer className="report-buttons-container">
         {/* Link to Add New Client */}
         <Link to="/client-rating-report">
           <div className="box"></div>
-          <StyledButton>Find Clients By Rating</StyledButton>
+          <StyledButton className="report-button">Pull Client Rating Report</StyledButton>
         </Link>
 
         {/* Link to Generate Report */}
         <Link to="/all-clients-report">
           <div className="box"></div>
-          <StyledButton>List of all clients</StyledButton>
+          <StyledButton className="report-button">List of all clients</StyledButton>
         </Link>
       </ButtonContainer>
       </div>

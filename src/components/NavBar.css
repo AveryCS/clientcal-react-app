@@ -2,10 +2,14 @@
 .navbar {
     display: flex;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: hsl(0, 0%, 100%);
     padding: 10px;
+    
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
+  /* .navbar-links{
+    padding-bottom: 30px;
+  } */
   
   .navbar a {
     color: #3498db;

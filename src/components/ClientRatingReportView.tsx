@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import NavBar from './NavBar';
+import './ClientRatingReportView.css';
 
 interface Client {
   id: number;
@@ -71,7 +73,11 @@ const ClientRatingReportView: React.FC = () => {
   };
 
   return (
+
     <div>
+       <NavBar /> 
+      <div className="report-container">
+        
       <h2>Client Rating Report</h2>
       <label>
         Select Rating:
@@ -102,6 +108,7 @@ const ClientRatingReportView: React.FC = () => {
 
       <button onClick={handlePrintReport}>Print Report</button>
       <button onClick={handleDownloadReport}>Download Report</button>
+    </div>
     </div>
   );
 };
