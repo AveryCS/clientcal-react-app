@@ -1,20 +1,5 @@
 
 
-// const SingleClientView = () => {
-//     return (
-//         <div>
-//       <h2>Single Client View</h2>
-//       <p>This is the content of the SingleClientView component.</p>
-//     </div>
-
-        
-//     );
-//   };
-  
-//   export default SingleClientView;
-  
-//------------
-
 // SingleClientView.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -22,6 +7,11 @@ import { useParams } from 'react-router-dom';
 interface Client {
   id: number;
   name: string;
+  hoursBookedPerYear: number;
+  hourlyRate: number;
+  email: string;
+  easeToWorkWith: number;
+  clientRating: number;
   // Add other properties if needed
 }
 
@@ -53,6 +43,11 @@ const SingleClientView: React.FC = () => {
   return (
     <div>
       <h2>{client.name}'s Profile</h2>
+      <p>Email: {client.email}</p>
+      <p>Hours Booked Per Year: {client.hoursBookedPerYear}</p>
+      <p>Hourly Rate: {client.hourlyRate}</p>
+      <p>Ease to Work With: {client.easeToWorkWith}</p>
+      <p>Client Rating: {client.clientRating}</p>
       {/* Render other client information as needed */}
     </div>
   );
