@@ -1,0 +1,63 @@
+/* AddClientView.css */
+
+/* Container for the entire component */
+.add-client-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #2E8BC0;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color: #ddff56;
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form label styling */
+  form label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Form input fields */
+  form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #2E8BC0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+  }
+  
+  /* Add button styling */
+  .add-button {
+    background-color: #145DA0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  /* Responsive styling for smaller screens (mobile-friendly) */
+  @media (max-width: 768px) {
+    .add-client-container {
+      padding: 20px;
+    }
+  
+    /* You can further adjust the styles for smaller screens here */
+  }
+  
