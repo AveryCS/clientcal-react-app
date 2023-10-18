@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomeView />} />
-        <Route path="/single-client" element={<SingleClientView />} />
+        <Route path="/single-client/:id" element={<SingleClientView />} />
         <Route path="/add-client" element={<AddClientView />} />
         <Route path="/create-report" element={<CreateReportView />} />
       </Routes>
