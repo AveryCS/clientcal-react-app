@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import NavBar from './NavBar';
 
 interface Client {
   id: number;
@@ -64,6 +65,7 @@ const AllClientsReportView: React.FC = () => {
 
   return (
     <div>
+        <NavBar /> 
       <h2>All Clients Report</h2>
 
       {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}

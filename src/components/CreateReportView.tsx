@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import StyledButton from './styledcomponents/StyledButton';
 import { Link } from 'react-router-dom';
 import { ButtonContainer } from './styledcomponents/HomeViewStyles';
+import NavBar from './NavBar';
 
 interface Client {
   id: number;
@@ -16,10 +17,8 @@ interface Client {
 const CreateReportView: React.FC = () => {
   
   return (
-
+    <div><NavBar /> 
     <ButtonContainer>
-        
-
         {/* Link to Add New Client */}
         <Link to="/client-rating-report">
           <div className="box"></div>
@@ -32,6 +31,7 @@ const CreateReportView: React.FC = () => {
           <StyledButton>List of all clients</StyledButton>
         </Link>
       </ButtonContainer>
+      </div>
    
   );
 };

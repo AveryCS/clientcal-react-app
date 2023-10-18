@@ -1,8 +1,10 @@
 
+
 // import React, { useState } from 'react';
 // import { useNavigate } from 'react-router-dom';
 // import SuccessfulAddClientView from './SuccessfulAddClientView';
 // import ClientExistsInDatabaseView from './ClientExistsInDatabaseView';
+// import './AddClientView.css'; // Import your CSS file
 
 // const AddClientView: React.FC = () => {
 //   const [clientInfo, setClientInfo] = useState({
@@ -87,8 +89,8 @@
 //   };
 
 //   return (
-//     <div>
-//       {formError && <p style={{ color: 'red' }}>{formError}</p>}
+//     <div className="add-client-container">
+//       {formError && <p className="error-message">{formError}</p>}
 //       {clientExists ? (
 //         <ClientExistsInDatabaseView />
 //       ) : addedClientDetails ? (
@@ -141,7 +143,9 @@
 //                 required
 //               />
 //             </label>
-//             <button type="submit">Add Client</button>
+//             <button type="submit" className="add-button">
+//               Add Client
+//             </button>
 //           </form>
 //         </div>
 //       )}
@@ -151,13 +155,14 @@
 
 // export default AddClientView;
 
+//___________
 
-//-----
-
+// AddClientView.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SuccessfulAddClientView from './SuccessfulAddClientView';
 import ClientExistsInDatabaseView from './ClientExistsInDatabaseView';
+import NavBar from './NavBar'; // Import the NavBar component
 import './AddClientView.css'; // Import your CSS file
 
 const AddClientView: React.FC = () => {
@@ -243,69 +248,73 @@ const AddClientView: React.FC = () => {
   };
 
   return (
-    <div className="add-client-container">
-      {formError && <p className="error-message">{formError}</p>}
-      {clientExists ? (
-        <ClientExistsInDatabaseView />
-      ) : addedClientDetails ? (
-        <SuccessfulAddClientView clientDetails={addedClientDetails} />
-      ) : (
-        <div>
-          <h2>Add Client</h2>
-          <form onSubmit={handleSubmit}>
-            <label>
-              Name:
-              <input type="text" name="name" value={clientInfo.name} onChange={handleInputChange} required />
-            </label>
-            <label>
-              Hours Booked Per Year:
-              <input
-                type="number"
-                name="hoursBookedPerYear"
-                value={clientInfo.hoursBookedPerYear}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
-            <label>
-              Hourly Rate:
-              <input
-                type="number"
-                name="hourlyRate"
-                value={clientInfo.hourlyRate}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
-            <label>
-              Email:
-              <input
-                type="email"
-                name="email"
-                value={clientInfo.email}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
-            <label>
-              Ease To Work With:
-              <input
-                type="number"
-                name="easeToWorkWith"
-                value={clientInfo.easeToWorkWith}
-                onChange={handleInputChange}
-                required
-              />
-            </label>
-            <button type="submit" className="add-button">
-              Add Client
-            </button>
-          </form>
-        </div>
-      )}
+    <div>
+      <NavBar /> {/* Include the NavBar component */}
+      <div className="add-client-container">
+        {formError && <p className="error-message">{formError}</p>}
+        {clientExists ? (
+          <ClientExistsInDatabaseView />
+        ) : addedClientDetails ? (
+          <SuccessfulAddClientView clientDetails={addedClientDetails} />
+        ) : (
+          <div>
+            <h2>Add Client</h2>
+            <form onSubmit={handleSubmit}>
+              <label>
+                Name:
+                <input type="text" name="name" value={clientInfo.name} onChange={handleInputChange} required />
+              </label>
+              <label>
+                Hours Booked Per Year:
+                <input
+                  type="number"
+                  name="hoursBookedPerYear"
+                  value={clientInfo.hoursBookedPerYear}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              <label>
+                Hourly Rate:
+                <input
+                  type="number"
+                  name="hourlyRate"
+                  value={clientInfo.hourlyRate}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              <label>
+                Email:
+                <input
+                  type="email"
+                  name="email"
+                  value={clientInfo.email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              <label>
+                Ease To Work With:
+                <input
+                  type="number"
+                  name="easeToWorkWith"
+                  value={clientInfo.easeToWorkWith}
+                  onChange={handleInputChange}
+                  required
+                />
+              </label>
+              <button type="submit" className="add-button">
+                Add Client
+              </button>
+            </form>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
 
 export default AddClientView;
+
 
