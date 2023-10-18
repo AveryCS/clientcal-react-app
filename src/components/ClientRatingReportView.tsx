@@ -77,7 +77,7 @@ const ClientRatingReportView: React.FC = () => {
     <div>
        <NavBar /> 
       <div className="report-container">
-        
+        <div className="container-contents">
       <h2>Client Rating Report</h2>
       <label>
         Select Rating:
@@ -108,6 +108,7 @@ const ClientRatingReportView: React.FC = () => {
 
       <button onClick={handlePrintReport}>Print Report</button>
       <button onClick={handleDownloadReport}>Download Report</button>
+    </div>
     </div>
     </div>
   );
