@@ -83,6 +83,7 @@ button {
 
 .client-rating{
 color: green;
+font-size: 30px;
 }
 .error-message-single-client {
   color: red; /* or any other color you prefer */
