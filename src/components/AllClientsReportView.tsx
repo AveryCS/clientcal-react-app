@@ -1,7 +1,8 @@
 
+
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
-
+import './css/AllClientsReportView.css';
 
 interface Client {
   id: number;
@@ -91,97 +92,68 @@ const AllClientsReportView: React.FC = () => {
     });
   };
 
-  const tableHeaderStyle: React.CSSProperties = {
-    textAlign: 'center',
-    backgroundColor: '#3498db',
-    color: '#fff',
-    padding: '10px',
-  };
-
-  const tableCellStyle: React.CSSProperties = {
-    textAlign: 'center',
-    padding: '10px',
-    border: '1px solid #ddd',
-  };
-
-  const evenRowStyle: React.CSSProperties = {
-    backgroundColor: '#f9f9f9',
-  };
-
-  const oddRowStyle: React.CSSProperties = {
-    backgroundColor: '#e1e1e1',
-  };
-
-  const SortableHeader: React.FC<SortableHeaderProps> = ({ column, onClick, sortDirection, children }) => {
-    const handleClick = () => {
-      onClick(column);
-    };
-
-    return (
-      <th style={{ ...tableHeaderStyle, cursor: 'pointer' }} onClick={handleClick}>
-        {children}
-        {sortDirection && (
-          <span style={{ marginLeft: '4px' }}>{sortDirection === 'asc' ? '↑' : '↓'}</span>
-        )}
-      </th>
-    );
-  };
-
   return (
-    <div>
+    <div className="container">
       <NavBar />
-      <h2>All Clients Report</h2>
+      <div className="report">
+        <h2>All Clients Report</h2>
 
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+        {errorMessage && <p className="error">{errorMessage}</p>}
 
-      {clients.length > 0 && (
-        <div>
-          <p>Report pulled on: {reportDate}</p>
-        </div>
-      )}
+        {clients.length > 0 && (
+          <div>
+            <p>Report pulled on: {reportDate}</p>
+          </div>
+        )}
 
-      {clients.length > 0 && (
-        <table style={{ width: '100%', borderCollapse: 'collapse', marginTop: '20px' }}>
-          <thead>
-            <tr>
-              <th style={tableHeaderStyle}>#</th>
-              <SortableHeader column="name" onClick={handleSort} sortDirection={sortDirection}>
-                Name
-              </SortableHeader>
-              <SortableHeader column="hoursBookedPerYear" onClick={handleSort} sortDirection={sortDirection}>
-                Hours Booked Per Year
-              </SortableHeader>
-              <SortableHeader column="hourlyRate" onClick={handleSort} sortDirection={sortDirection}>
-                Hourly Rate
-              </SortableHeader>
-              <th style={tableHeaderStyle}>Email</th>
-              <SortableHeader column="easeToWorkWith" onClick={handleSort} sortDirection={sortDirection}>
-                Ease to Work With
-              </SortableHeader>
-              <SortableHeader column="clientRating" onClick={handleSort} sortDirection={sortDirection}>
-                Client Rating
-              </SortableHeader>
-            </tr>
-          </thead>
-          <tbody>
-            {sortedClients().map((client, index) => (
-              <tr key={client.id} style={index % 2 === 0 ? evenRowStyle : oddRowStyle}>
-                <td style={tableCellStyle}>{index + 1}</td>
-                <td style={tableCellStyle}>{client.name}</td>
-                <td style={tableCellStyle}>{client.clientRating}</td>
-                <td style={tableCellStyle}>{client.hoursBookedPerYear}</td>
-                <td style={tableCellStyle}>{client.hourlyRate}</td>
-                <td style={tableCellStyle}>{client.email}</td>
-                <td style={tableCellStyle}>{client.easeToWorkWith}</td>
-              
+        {clients.length > 0 && (
+          <table className="table">
+            <thead>
+              <tr>
+                <th className="table-header">#</th>
+                <SortableHeader column="name" onClick={handleSort} sortDirection={sortDirection}>
+                  Name
+                </SortableHeader>
+                <SortableHeader column="hoursBookedPerYear" onClick={handleSort} sortDirection={sortDirection}>
+                  Hours Booked Per Year
+                </SortableHeader>
+                <SortableHeader column="hourlyRate" onClick={handleSort} sortDirection={sortDirection}>
+                  Hourly Rate
+                </SortableHeader>
+                <th className="table-header">Email</th>
+                <SortableHeader column="easeToWorkWith" onClick={handleSort} sortDirection={sortDirection}>
+                  Ease to Work With
+                </SortableHeader>
+                <SortableHeader column="clientRating" onClick={handleSort} sortDirection={sortDirection}>
+                  Client Rating
+                </SortableHeader>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
+            </thead>
+            <tbody>
+              {sortedClients().map((client, index) => (
+                <tr key={client.id} className={index % 2 === 0 ? 'even-row' : 'odd-row'}>
+                  <td className="table-cell">{index + 1}</td>
+                  <td className="table-cell">{client.name}</td>
+                  <td className="table-cell">{client.clientRating}</td>
+                  <td className="table-cell">{client.hoursBookedPerYear}</td>
+                  <td className="table-cell">{client.hourlyRate}</td>
+                  <td className="table-cell">{client.email}</td>
+                  <td className="table-cell">{client.easeToWorkWith}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
 
-      <button onClick={handlePrintReport}>Print Report</button>
-      <button onClick={handleDownloadReport}>Download Report</button>
+        <div className="button-container">
+          <button className="button" onClick={handlePrintReport}>
+            Print / Download Report
+          </button>
+          {/* <button className="button" onClick={handleDownloadReport}>
+            Download Report
+          </button> */}
+        </div>
+      </div>
     </div>
   );
 };
@@ -192,5 +164,20 @@ interface SortableHeaderProps {
   sortDirection: 'asc' | 'desc' | null;
   children: React.ReactNode;
 }
+
+const SortableHeader: React.FC<SortableHeaderProps> = ({ column, onClick, sortDirection, children }) => {
+  const handleClick = () => {
+    onClick(column);
+  };
+
+  return (
+    <th className="table-header sortable-header" onClick={handleClick}>
+      {children}
+      {sortDirection && (
+        <span style={{ marginLeft: '4px' }}>{sortDirection === 'asc' ? '↑' : '↓'}</span>
+      )}
+    </th>
+  );
+};
 
 export default AllClientsReportView;
