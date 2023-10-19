@@ -114,19 +114,22 @@ const AllClientsReportView: React.FC = () => {
                 <SortableHeader column="name" onClick={handleSort} sortDirection={sortDirection}>
                   Name
                 </SortableHeader>
+                <SortableHeader column="clientRating" onClick={handleSort} sortDirection={sortDirection}>
+                  Client Rating
+                </SortableHeader>
                 <SortableHeader column="hoursBookedPerYear" onClick={handleSort} sortDirection={sortDirection}>
                   Hours Booked Per Year
                 </SortableHeader>
                 <SortableHeader column="hourlyRate" onClick={handleSort} sortDirection={sortDirection}>
                   Hourly Rate
                 </SortableHeader>
-                <th className="table-header">Email</th>
+                
                 <SortableHeader column="easeToWorkWith" onClick={handleSort} sortDirection={sortDirection}>
                   Ease to Work With
                 </SortableHeader>
-                <SortableHeader column="clientRating" onClick={handleSort} sortDirection={sortDirection}>
-                  Client Rating
-                </SortableHeader>
+
+                <th className="table-header">Email</th>
+               
               </tr>
             </thead>
             <tbody>
@@ -137,8 +140,9 @@ const AllClientsReportView: React.FC = () => {
                   <td className="table-cell">{client.clientRating}</td>
                   <td className="table-cell">{client.hoursBookedPerYear}</td>
                   <td className="table-cell">{client.hourlyRate}</td>
-                  <td className="table-cell">{client.email}</td>
+    
                   <td className="table-cell">{client.easeToWorkWith}</td>
+                  <td className="table-cell">{client.email}</td>
                 </tr>
               ))}
             </tbody>
