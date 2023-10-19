@@ -109,6 +109,8 @@ const AllClientsReportView: React.FC = () => {
   const [clients, setClients] = useState<Client[]>([]);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [reportDate, setReportDate] = useState<string | null>(null);
+  const [sortColumn, setSortColumn] = useState<string | null>(null);
+  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
   useEffect(() => {
     const fetchAllClients = async () => {
@@ -157,6 +159,28 @@ const AllClientsReportView: React.FC = () => {
     document.body.removeChild(downloadLink);
   };
 
+  const handleSort = (column: string) => {
+    setSortColumn(column);
+    setSortDirection((prevDirection) => (prevDirection === 'asc' ? 'desc' : 'asc'));
+  };
+
+  const sortedClients = () => {
+    if (sortColumn === null) {
+      return clients;
+    }
+
+    const multiplier = sortDirection === 'asc' ? 1 : -1;
+
+    return [...clients].sort((a, b) => {
+      if (sortColumn === 'name') {
+        // Sorting by name is not allowed
+        return 0;
+      }
+
+      return (a[sortColumn as keyof Client] - b[sortColumn as keyof Client]) * multiplier;
+    });
+  };
+
   return (
     <div>
       <NavBar />
@@ -175,16 +199,28 @@ const AllClientsReportView: React.FC = () => {
           <thead>
             <tr>
               <th style={{ textAlign: 'center' }}>#</th>
-              <th style={{ textAlign: 'center' }}>Name</th>
-              <th style={{ textAlign: 'center' }}>Hours Booked Per Year</th>
-              <th style={{ textAlign: 'center' }}>Hourly Rate</th>
-              <th style={{ textAlign: 'center' }}>Email</th>
-              <th style={{ textAlign: 'center' }}>Ease to Work With</th>
-              <th style={{ textAlign: 'center' }}>Client Rating</th>
+              <SortableHeader column="name" onClick={handleSort} sortDirection={null}>
+                Name
+              </SortableHeader>
+              <SortableHeader column="hoursBookedPerYear" onClick={handleSort} sortDirection={sortDirection}>
+                Hours Booked Per Year
+              </SortableHeader>
+              <SortableHeader column="hourlyRate" onClick={handleSort} sortDirection={sortDirection}>
+                Hourly Rate
+              </SortableHeader>
+              <SortableHeader column="email" onClick={handleSort} sortDirection={sortDirection}>
+                Email
+              </SortableHeader>
+              <SortableHeader column="easeToWorkWith" onClick={handleSort} sortDirection={sortDirection}>
+                Ease to Work With
+              </SortableHeader>
+              <SortableHeader column="clientRating" onClick={handleSort} sortDirection={sortDirection}>
+                Client Rating
+              </SortableHeader>
             </tr>
           </thead>
           <tbody>
-            {clients.map((client, index) => (
+            {sortedClients().map((client, index) => (
               <tr key={client.id}>
                 <td style={{ textAlign: 'center' }}>{index + 1}</td>
                 <td style={{ textAlign: 'center' }}>{client.name}</td>
@@ -202,6 +238,27 @@ const AllClientsReportView: React.FC = () => {
       <button onClick={handlePrintReport}>Print Report</button>
       <button onClick={handleDownloadReport}>Download Report</button>
     </div>
+  );
+};
+
+interface SortableHeaderProps {
+  column: string;
+  onClick: (column: string) => void;
+  sortDirection: 'asc' | 'desc' | null;
+}
+
+const SortableHeader: React.FC<SortableHeaderProps> = ({ column, onClick, sortDirection, children }) => {
+  const handleClick = () => {
+    onClick(column);
+  };
+
+  return (
+    <th style={{ textAlign: 'center', cursor: 'pointer' }} onClick={handleClick}>
+      {children}
+      {sortDirection && (
+        <span style={{ marginLeft: '4px' }}>{sortDirection === 'asc' ? '↑' : '↓'}</span>
+      )}
+    </th>
   );
 };
 
