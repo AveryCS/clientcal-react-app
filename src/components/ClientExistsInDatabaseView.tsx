@@ -1,7 +1,7 @@
 const ClientExistsInDatabaseView = () => {
     return (
         <div>
-      <h2>CLIENT EXISTS IN DB</h2>
+      <h2>Client already exists in database</h2>
       <p></p>
     </div>
 
