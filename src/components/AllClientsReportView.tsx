@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
 
+
 interface Client {
   id: number;
   name: string;
@@ -167,11 +168,12 @@ const AllClientsReportView: React.FC = () => {
               <tr key={client.id} style={index % 2 === 0 ? evenRowStyle : oddRowStyle}>
                 <td style={tableCellStyle}>{index + 1}</td>
                 <td style={tableCellStyle}>{client.name}</td>
+                <td style={tableCellStyle}>{client.clientRating}</td>
                 <td style={tableCellStyle}>{client.hoursBookedPerYear}</td>
                 <td style={tableCellStyle}>{client.hourlyRate}</td>
                 <td style={tableCellStyle}>{client.email}</td>
                 <td style={tableCellStyle}>{client.easeToWorkWith}</td>
-                <td style={tableCellStyle}>{client.clientRating}</td>
+              
               </tr>
             ))}
           </tbody>

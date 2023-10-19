@@ -1,7 +1,8 @@
 // NavBar.tsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './NavBar.css'; // Import your CSS file
+import './css/NavBar.css';
+
 
 const NavBar: React.FC = () => {
   return (

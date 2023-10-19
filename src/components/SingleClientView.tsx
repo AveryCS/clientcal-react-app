@@ -59,7 +59,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import NavBar from './NavBar';
-import './SingleClientView.css';
+import './css/SingleClientView.css';
 
 interface Client {
   id: number;

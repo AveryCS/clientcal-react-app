@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import SuccessfulAddClientView from './SuccessfulAddClientView';
 import ClientExistsInDatabaseView from './ClientExistsInDatabaseView';
 import NavBar from './NavBar'; // Import the NavBar component
-import './AddClientView.css'; // Import your CSS file
+import './css/AddClientView.css';
 
 const AddClientView: React.FC = () => {
   const [clientInfo, setClientInfo] = useState({

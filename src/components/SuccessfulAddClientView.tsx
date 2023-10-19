@@ -1,7 +1,7 @@
 
 
 import React from 'react';
-import './SuccessfulAddClientView.css'; // Import your CSS file
+import './css/SuccessfulAddClientView.css';
 
 interface SuccessfulAddClientViewProps {
   clientDetails: {

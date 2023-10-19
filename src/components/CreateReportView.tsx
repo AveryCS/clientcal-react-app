@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import StyledButton from './styledcomponents/StyledButton';
 import { Link } from 'react-router-dom';
 import { ButtonContainer } from './styledcomponents/HomeViewStyles';
-import NavBar from './NavBar';
-import './CreateReportView.css';
+import NavBar from './NavBar'; // Import the NavBar component
+import './css/CreateReportView.css';
 
 interface Client {
   id: number;

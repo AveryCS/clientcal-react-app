@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
-import './ClientRatingReportView.css';
+
+import './css/ClientRatingReportView.css';
 
 interface Client {
   id: number;
