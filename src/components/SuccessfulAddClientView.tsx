@@ -18,10 +18,10 @@ interface SuccessfulAddClientViewProps {
 const SuccessfulAddClientView: React.FC<SuccessfulAddClientViewProps> = ({ clientDetails }) => {
   return (
     <div className="successful-add-client-container">
-      <h2>{clientDetails.name} Successfully Added</h2>
+      <h2 className="success-name-client">{clientDetails.name} successfully added</h2>
       <div className="client-details">
     
-        <p><strong>Client Rating:</strong> {clientDetails.clientRating}</p>
+        <p  className="success-client-rating"><strong>Client Rating:</strong> {clientDetails.clientRating}</p>
         {/* <p><strong>Hours Booked Per Year:</strong> {clientDetails.hoursBookedPerYear}</p>
         <p><strong>Hourly Rate:</strong> {clientDetails.hourlyRate}</p>
         <p><strong>Email:</strong> {clientDetails.email}</p>
