@@ -1,4 +1,5 @@
 
+
 // SingleClientView.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -13,7 +14,6 @@ interface Client {
   email: string;
   easeToWorkWith: number;
   clientRating: number;
-  // Add other properties if needed
 }
 
 type EditableFields = 'hoursBookedPerYear' | 'hourlyRate' | 'easeToWorkWith';
@@ -104,8 +104,10 @@ const SingleClientView: React.FC = () => {
     <div>
       <NavBar />
       <div className="single-client-view">
-        <h2>{client?.name}'s Profile</h2>
-        <p>Client Rating: {client?.clientRating}</p>
+        <div className="client-profile-header">
+          <h2>{client?.name}'s Profile</h2>
+          <p className="client-rating">Client Rating: {client?.clientRating}</p>
+        </div>
         <div className="editable-fields-container">
           <div className="editable-field">
             <label className="label">Hours Booked Per Year:</label>
@@ -117,14 +119,20 @@ const SingleClientView: React.FC = () => {
                   onChange={(e) => handleTempChange('hoursBookedPerYear', e.target.value)}
                 />
                 <div className="buttons-container">
-                  <button onClick={() => handleSave('hoursBookedPerYear', tempChanges.hoursBookedPerYear)}>Save</button>
-                  <button onClick={() => toggleEditMode('hoursBookedPerYear')}>Cancel</button>
+                  <button className="btn btn-success" onClick={() => handleSave('hoursBookedPerYear', tempChanges.hoursBookedPerYear)}>
+                    Save
+                  </button>
+                  <button className="btn btn-secondary" onClick={() => toggleEditMode('hoursBookedPerYear')}>
+                    Cancel
+                  </button>
                 </div>
               </div>
             ) : (
-              <div className="view-mode">
-                <div className="input">{client?.hoursBookedPerYear}</div>
-                <button onClick={() => toggleEditMode('hoursBookedPerYear')}>Edit</button>
+              <div className="view-mode d-flex align-items-center">
+                <span className="input">{client?.hoursBookedPerYear}</span>
+                <button className="btn btn-primary ml-2" onClick={() => toggleEditMode('hoursBookedPerYear')}>
+                  Edit
+                </button>
               </div>
             )}
           </div>
@@ -138,14 +146,20 @@ const SingleClientView: React.FC = () => {
                   onChange={(e) => handleTempChange('hourlyRate', e.target.value)}
                 />
                 <div className="buttons-container">
-                  <button onClick={() => handleSave('hourlyRate', tempChanges.hourlyRate)}>Save</button>
-                  <button onClick={() => toggleEditMode('hourlyRate')}>Cancel</button>
+                  <button className="btn btn-success" onClick={() => handleSave('hourlyRate', tempChanges.hourlyRate)}>
+                    Save
+                  </button>
+                  <button className="btn btn-secondary" onClick={() => toggleEditMode('hourlyRate')}>
+                    Cancel
+                  </button>
                 </div>
               </div>
             ) : (
-              <div className="view-mode">
-                <div className="input">{client?.hourlyRate}</div>
-                <button onClick={() => toggleEditMode('hourlyRate')}>Edit</button>
+              <div className="view-mode d-flex align-items-center">
+                <span className="input">{client?.hourlyRate}</span>
+                <button className="btn btn-primary ml-2" onClick={() => toggleEditMode('hourlyRate')}>
+                  Edit
+                </button>
               </div>
             )}
           </div>
@@ -159,20 +173,26 @@ const SingleClientView: React.FC = () => {
                   onChange={(e) => handleTempChange('easeToWorkWith', e.target.value)}
                 />
                 <div className="buttons-container">
-                  <button onClick={() => handleSave('easeToWorkWith', tempChanges.easeToWorkWith)}>Save</button>
-                  <button onClick={() => toggleEditMode('easeToWorkWith')}>Cancel</button>
+                  <button className="btn btn-success" onClick={() => handleSave('easeToWorkWith', tempChanges.easeToWorkWith)}>
+                    Save
+                  </button>
+                  <button className="btn btn-secondary" onClick={() => toggleEditMode('easeToWorkWith')}>
+                    Cancel
+                  </button>
                 </div>
               </div>
             ) : (
-              <div className="view-mode">
-                <div className="input">{client?.easeToWorkWith}</div>
-                <button onClick={() => toggleEditMode('easeToWorkWith')}>Edit</button>
+              <div className="view-mode d-flex align-items-center">
+                <span className="input">{client?.easeToWorkWith}</span>
+                <button className="btn btn-primary ml-2" onClick={() => toggleEditMode('easeToWorkWith')}>
+                  Edit
+                </button>
               </div>
             )}
           </div>
         </div>
         <p>Email: {client?.email}</p>
-        {error && <p className="error-message">{error}</p>}
+        {error && <p className="error-message-single-client">{error}</p>}
         {successMessage && <p className="success-message">{successMessage}</p>}
       </div>
     </div>
@@ -180,3 +200,9 @@ const SingleClientView: React.FC = () => {
 };
 
 export default SingleClientView;
+
+
+
+
+
+
