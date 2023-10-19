@@ -1,60 +1,4 @@
 
-
-// // SingleClientView.tsx
-// import React, { useEffect, useState } from 'react';
-// import { useParams } from 'react-router-dom';
-
-// interface Client {
-//   id: number;
-//   name: string;
-//   hoursBookedPerYear: number;
-//   hourlyRate: number;
-//   email: string;
-//   easeToWorkWith: number;
-//   clientRating: number;
-//   // Add other properties if needed
-// }
-
-// const SingleClientView: React.FC = () => {
-//   const { id } = useParams<{ id: string }>();
-//   const [client, setClient] = useState<Client | null>(null);
-
-//   useEffect(() => {
-//     const fetchClient = async () => {
-//       try {
-//         const response = await fetch(`http://localhost:8080/client/${id}`);
-//         const data = await response.json();
-//         setClient(data);
-//       } catch (error) {
-//         console.error('Error fetching client:', error);
-//       }
-//     };
-
-//     if (id) {
-//       fetchClient();
-//     }
-//   }, [id]);
-
-//   if (!client) {
-//     return <div>Loading...</div>;
-//   }
-
-//   // Render the client information
-//   return (
-//     <div>
-//       <h2>{client.name}'s Profile</h2>
-//       <p>Email: {client.email}</p>
-//       <p>Hours Booked Per Year: {client.hoursBookedPerYear}</p>
-//       <p>Hourly Rate: {client.hourlyRate}</p>
-//       <p>Ease to Work With: {client.easeToWorkWith}</p>
-//       <p>Client Rating: {client.clientRating}</p>
-//       {/* Render other client information as needed */}
-//     </div>
-//   );
-// };
-
-// export default SingleClientView;
-//------
 // SingleClientView.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -112,6 +56,10 @@ const SingleClientView: React.FC = () => {
     setTempChanges({}); // Reset temporary changes when entering edit mode
   };
 
+  const handleTempChange = (field: EditableFields, value: string | number) => {
+    setTempChanges((prev) => ({ ...prev, [field]: value }));
+  };
+
   const handleSave = async (field: EditableFields, value: string | number) => {
     try {
       let updatedClient: Client;
@@ -126,7 +74,10 @@ const SingleClientView: React.FC = () => {
         }
       }
 
-      const response = await fetch(`http://localhost:8080/client/${id}/${field}/${value}`, {
+      // Ensure tempChanges[field] is a number, providing a default value of 0 if it's undefined
+      const tempFieldValue = tempChanges[field] !== undefined ? Number(tempChanges[field]) : 0;
+
+      const response = await fetch(`http://localhost:8080/client/${id}/${field}/${tempFieldValue}`, {
         method: 'PATCH',
       });
 
@@ -149,10 +100,6 @@ const SingleClientView: React.FC = () => {
     }
   };
 
-  const handleTempChange = (field: EditableFields, value: string | number) => {
-    setTempChanges((prev) => ({ ...prev, [field]: value }));
-  };
-
   return (
     <div>
       <NavBar />
@@ -161,72 +108,70 @@ const SingleClientView: React.FC = () => {
         <p>Client Rating: {client?.clientRating}</p>
         <div className="editable-fields-container">
           <div className="editable-field">
-            <div className="fields-container">
-              <div className="label">Hours Booked Per Year:</div>
-              {editMode.hoursBookedPerYear ? (
-                <div className="input-container">
-                  <input
-                    className="input-field"
-                    value={tempChanges.hoursBookedPerYear !== undefined ? tempChanges.hoursBookedPerYear : client?.hoursBookedPerYear}
-                    onChange={(e) => handleTempChange('hoursBookedPerYear', e.target.value)}
-                  />
-                  <div className="buttons-container">
-                    <button onClick={() => handleSave('hoursBookedPerYear', tempChanges.hoursBookedPerYear)}>Save</button>
-                    <button onClick={() => toggleEditMode('hoursBookedPerYear')}>Cancel</button>
-                  </div>
+            <label className="label">Hours Booked Per Year:</label>
+            {editMode.hoursBookedPerYear ? (
+              <div className="input-container">
+                <input
+                  className="input-field"
+                  value={tempChanges.hoursBookedPerYear !== undefined ? tempChanges.hoursBookedPerYear : client?.hoursBookedPerYear}
+                  onChange={(e) => handleTempChange('hoursBookedPerYear', e.target.value)}
+                />
+                <div className="buttons-container">
+                  <button onClick={() => handleSave('hoursBookedPerYear', tempChanges.hoursBookedPerYear)}>Save</button>
+                  <button onClick={() => toggleEditMode('hoursBookedPerYear')}>Cancel</button>
                 </div>
-              ) : (
-                <div>
-                  {client?.hoursBookedPerYear}
-                  <button onClick={() => toggleEditMode('hoursBookedPerYear')}>Edit</button>
-                </div>
-              )}
-            </div>
-            <div className="editable-field">
-              <div className="label">Hourly Rate:</div>
-              {editMode.hourlyRate ? (
-                <div className="input-container">
-                  <input
-                    className="input-field"
-                    value={tempChanges.hourlyRate !== undefined ? tempChanges.hourlyRate : client?.hourlyRate}
-                    onChange={(e) => handleTempChange('hourlyRate', e.target.value)}
-                  />
-                  <div className="buttons-container">
-                    <button onClick={() => handleSave('hourlyRate', tempChanges.hourlyRate)}>Save</button>
-                    <button onClick={() => toggleEditMode('hourlyRate')}>Cancel</button>
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  {client?.hourlyRate}
-                  <button onClick={() => toggleEditMode('hourlyRate')}>Edit</button>
-                </div>
-              )}
-            </div>
-            <div className="editable-field">
-              <div className="label">Ease to Work With:</div>
-              {editMode.easeToWorkWith ? (
-                <div className="input-container">
-                  <input
-                    className="input-field"
-                    value={tempChanges.easeToWorkWith !== undefined ? tempChanges.easeToWorkWith : client?.easeToWorkWith}
-                    onChange={(e) => handleTempChange('easeToWorkWith', e.target.value)}
-                  />
-                  <div className="buttons-container">
-                    <button onClick={() => handleSave('easeToWorkWith', tempChanges.easeToWorkWith)}>Save</button>
-                    <button onClick={() => toggleEditMode('easeToWorkWith')}>Cancel</button>
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  {client?.easeToWorkWith}
-                  <button onClick={() => toggleEditMode('easeToWorkWith')}>Edit</button>
-                </div>
-              )}
-            </div>
+              </div>
+            ) : (
+              <div className="view-mode">
+                <div className="input">{client?.hoursBookedPerYear}</div>
+                <button onClick={() => toggleEditMode('hoursBookedPerYear')}>Edit</button>
+              </div>
+            )}
           </div>
-          <p>Email: {client?.email}</p>
+          <div className="editable-field">
+            <label className="label">Hourly Rate:</label>
+            {editMode.hourlyRate ? (
+              <div className="input-container">
+                <input
+                  className="input-field"
+                  value={tempChanges.hourlyRate !== undefined ? tempChanges.hourlyRate : client?.hourlyRate}
+                  onChange={(e) => handleTempChange('hourlyRate', e.target.value)}
+                />
+                <div className="buttons-container">
+                  <button onClick={() => handleSave('hourlyRate', tempChanges.hourlyRate)}>Save</button>
+                  <button onClick={() => toggleEditMode('hourlyRate')}>Cancel</button>
+                </div>
+              </div>
+            ) : (
+              <div className="view-mode">
+                <div className="input">{client?.hourlyRate}</div>
+                <button onClick={() => toggleEditMode('hourlyRate')}>Edit</button>
+              </div>
+            )}
+          </div>
+          <div className="editable-field">
+            <label className="label">Ease to Work With:</label>
+            {editMode.easeToWorkWith ? (
+              <div className="input-container">
+                <input
+                  className="input-field"
+                  value={tempChanges.easeToWorkWith !== undefined ? tempChanges.easeToWorkWith : client?.easeToWorkWith}
+                  onChange={(e) => handleTempChange('easeToWorkWith', e.target.value)}
+                />
+                <div className="buttons-container">
+                  <button onClick={() => handleSave('easeToWorkWith', tempChanges.easeToWorkWith)}>Save</button>
+                  <button onClick={() => toggleEditMode('easeToWorkWith')}>Cancel</button>
+                </div>
+              </div>
+            ) : (
+              <div className="view-mode">
+                <div className="input">{client?.easeToWorkWith}</div>
+                <button onClick={() => toggleEditMode('easeToWorkWith')}>Edit</button>
+              </div>
+            )}
+          </div>
         </div>
+        <p>Email: {client?.email}</p>
         {error && <p className="error-message">{error}</p>}
         {successMessage && <p className="success-message">{successMessage}</p>}
       </div>

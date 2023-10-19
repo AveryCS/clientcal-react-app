@@ -1,66 +1,79 @@
+/* SingleClientView.css */
 .single-client-view {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.editable-fields-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.editable-field {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+
+}
+
+.label {
+  font-size: 18px;
+  margin-right: 50px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center; /* Adjusted to align items horizontally */
+  /* padding-right: 300px; */
+}
+
+.input-field {
+  width: 100%;
+  padding: 8px;
+  margin-right: 8px; /* Adjusted margin-right for spacing */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center; /* Adjusted to align items horizontally */
+  justify-content: space-between
   
-  .editable-fields-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px; /* Adjusted margin-left for spacing */
+}
+
+.success-message {
+  color: green;
+  margin-top: 10px;
+}
+
+.view-mode {
+  display: flex;
+  align-items: center;
   
-  .row-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .editable-field {
-    display: flex;
-    align-items: center;
-  }
-  
-  .label {
-    font-size: 18px;
-    margin-right: 10px;
-  }
-  
-  .input-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .input-field {
-    width: 100%;
-    padding: 8px;
-    margin-right: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .buttons-container {
-    display: flex;
-  }
-  
-  button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-right: 5px;
-  }
-  
-  .success-message {
-    color: green;
-    margin-top: 10px;
-  }
-  
-  .view-mode {
-    display: flex;
-    align-items: center;
-  }
-  
+}
+
+.save-button{
+  padding-right: 10px;
+  border: white;
+}
+.input{
+  padding-right: 20px;
+}
