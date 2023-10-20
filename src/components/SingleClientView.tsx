@@ -119,7 +119,7 @@ const SingleClientView: React.FC = () => {
                   onChange={(e) => handleTempChange('hoursBookedPerYear', e.target.value)}
                 />
                 <div className="buttons-container">
-                  <button className="btn btn-success" onClick={() => handleSave('hoursBookedPerYear', tempChanges.hoursBookedPerYear)}>
+                  <button className="btn btn-success" onClick={() => handleSave('hoursBookedPerYear', tempChanges.hoursBookedPerYear as number)}>
                     Save
                   </button>
                   <button className="btn btn-secondary" onClick={() => toggleEditMode('hoursBookedPerYear')}>
@@ -146,7 +146,7 @@ const SingleClientView: React.FC = () => {
                   onChange={(e) => handleTempChange('hourlyRate', e.target.value)}
                 />
                 <div className="buttons-container">
-                  <button className="btn btn-success" onClick={() => handleSave('hourlyRate', tempChanges.hourlyRate)}>
+                  <button className="btn btn-success" onClick={() => handleSave('hourlyRate', tempChanges.hourlyRate as number)}>
                     Save
                   </button>
                   <button className="btn btn-secondary" onClick={() => toggleEditMode('hourlyRate')}>
@@ -173,7 +173,7 @@ const SingleClientView: React.FC = () => {
                   onChange={(e) => handleTempChange('easeToWorkWith', e.target.value)}
                 />
                 <div className="buttons-container">
-                  <button className="btn btn-success" onClick={() => handleSave('easeToWorkWith', tempChanges.easeToWorkWith)}>
+                  <button className="btn btn-success" onClick={() => handleSave('easeToWorkWith', tempChanges.easeToWorkWith as number)}>
                     Save
                   </button>
                   <button className="btn btn-secondary" onClick={() => toggleEditMode('easeToWorkWith')}>

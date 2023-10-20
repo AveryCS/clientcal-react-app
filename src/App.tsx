@@ -7,7 +7,20 @@ import CreateReportView from './components/CreateReportView';
 import SuccessfulAddClientView from './components/SuccessfulAddClientView';
 import ClientRatingReportView from './components/ClientRatingReportView';
 import AllClientsReportView from './components/AllClientsReportView';
+
 function App() {
+
+// const clientDetails ={
+//     name: string;
+//     hoursBookedPerYear: number;
+//     hourlyRate: number;
+//     email: string;
+//     easeToWorkWith: number;
+//     clientRating: number;
+//     // Add more fields as needed
+  
+// }
+
   return (
     <Router>
       <Routes>
@@ -15,7 +28,7 @@ function App() {
         <Route path="/single-client/:id" element={<SingleClientView />} />
         <Route path="/add-client" element={<AddClientView />} />
         <Route path="/create-report" element={<CreateReportView />} />
-        <Route path="/successful-add-client" element={<SuccessfulAddClientView />} />
+        <Route path="/successful-add-client" element={<SuccessfulAddClientView clientDetails={} />} />
         <Route path="/client-rating-report" element={<ClientRatingReportView />} />
         <Route path="/all-clients-report" element={<AllClientsReportView />} />
       </Routes>

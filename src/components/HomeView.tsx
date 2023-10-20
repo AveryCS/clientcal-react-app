@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import StyledButton from './styledcomponents/StyledButton';
 import { HomeContainer, ButtonContainer } from './styledcomponents/HomeViewStyles';
 import { useParams } from 'react-router-dom';
-
+import bannerImage from './Blue Gradient Header Banner.png';
 interface Client {
   id: number;
   name: string;
@@ -43,7 +43,9 @@ const HomeView: React.FC = () => {
 
   return (
     <HomeContainer>
-      <h2>Home</h2>
+      {/* <BannerImage src={bannerImage} alt="Banner" /> */}
+      <h2></h2>
+      
 
       <ButtonContainer>
         {/* Dropdown for selecting clients */}

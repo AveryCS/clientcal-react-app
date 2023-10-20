@@ -110,7 +110,7 @@ const AllClientsReportView: React.FC = () => {
           <table className="table">
             <thead>
               <tr>
-                <th className="table-header">#</th>
+                <th className="table-header"></th>
                 <SortableHeader column="name" onClick={handleSort} sortDirection={sortDirection}>
                   Name
                 </SortableHeader>
