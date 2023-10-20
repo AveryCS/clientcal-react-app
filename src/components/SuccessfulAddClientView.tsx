@@ -5,7 +5,7 @@ import './css/SuccessfulAddClientView.css';
 import NavBar from './NavBar';
 
 interface SuccessfulAddClientViewProps {
-  clientDetails: {
+  clientDetails?: {
     name: string;
     hoursBookedPerYear: number;
     hourlyRate: number;
@@ -23,10 +23,10 @@ const SuccessfulAddClientView: React.FC<SuccessfulAddClientViewProps> = ({ clien
   
     <div className="successful-add-client-container">
       
-      <h2 className="success-name-client">{clientDetails.name} successfully added</h2>
+      <h2 className="success-name-client">{clientDetails?.name} successfully added</h2>
       <div className="client-details">
     
-        <p  className="success-client-rating"><strong>Client Rating:</strong> {clientDetails.clientRating}</p>
+        <p  className="success-client-rating"><strong>Client Rating:</strong> {clientDetails?.clientRating}</p>
      
       </div>
     </div>

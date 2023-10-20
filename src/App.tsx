@@ -28,7 +28,7 @@ function App() {
         <Route path="/single-client/:id" element={<SingleClientView />} />
         <Route path="/add-client" element={<AddClientView />} />
         <Route path="/create-report" element={<CreateReportView />} />
-        <Route path="/successful-add-client" element={<SuccessfulAddClientView clientDetails={} />} />
+        <Route path="/successful-add-client" element={<SuccessfulAddClientView  />} />
         <Route path="/client-rating-report" element={<ClientRatingReportView />} />
         <Route path="/all-clients-report" element={<AllClientsReportView />} />
       </Routes>
