@@ -5,6 +5,10 @@ import StyledButton from './styledcomponents/StyledButton';
 import { HomeContainer, ButtonContainer } from './styledcomponents/HomeViewStyles';
 import { useParams } from 'react-router-dom';
 import bannerImage from './Blue Gradient Header Banner.png';
+import './css/HomeView.css';
+
+
+
 interface Client {
   id: number;
   name: string;
@@ -42,12 +46,11 @@ const HomeView: React.FC = () => {
   };
 
   return (
-    <HomeContainer>
-      {/* <BannerImage src={bannerImage} alt="Banner" /> */}
-      <h2></h2>
-      
+    <HomeContainer >
 
-      <ButtonContainer>
+     <img src={bannerImage} alt="Banner" className="banner-image" />
+     <div></div>
+      <ButtonContainer className="home-button-container">
         {/* Dropdown for selecting clients */}
         <select value={selectedClient} onChange={handleSelectChange}>
           <option value="">Select a Client</option>
@@ -70,6 +73,7 @@ const HomeView: React.FC = () => {
           <StyledButton>Generate Report</StyledButton>
         </Link>
       </ButtonContainer>
+
     </HomeContainer>
   );
 };
