@@ -57,11 +57,11 @@ const HomeView: React.FC = () => {
 
         <div className="d-grid gap-2">
           <Link to="/add-client">
-            <StyledButton className="btn btn-primary custom-button mb-3">Add New Client</StyledButton>
+            <StyledButton className="btn btn-primary custom-button mb-3 p-4">Add New Client</StyledButton>
           </Link>
 
           <Link to="/create-report">
-            <StyledButton className="btn btn-primary custom-button">Generate Report</StyledButton>
+            <StyledButton className="btn btn-primary custom-button p-4">Generate Report</StyledButton>
           </Link>
         </div>
       </div>
