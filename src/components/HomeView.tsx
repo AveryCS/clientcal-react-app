@@ -46,7 +46,7 @@ const HomeView: React.FC = () => {
       <img src={bannerImage} alt="Banner" className="img-fluid" />
 
       <div className="d-md-flex flex-column mt-5">
-        <select className="form-control mb-3" value={selectedClient} onChange={handleSelectChange}>
+        <select className="form-control mb-3 mt-5 w-50 mx-auto text-center" value={selectedClient} onChange={handleSelectChange}>
           <option value="">Select a Client</option>
           {clients.map((client) => (
             <option key={client.id} value={client.id}>
