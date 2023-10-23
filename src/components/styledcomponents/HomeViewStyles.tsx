@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 export const HomeContainer = styled.div`
   text-align: center; /* Center the text horizontally */
-  height: 100vh; /* Make the container take the full height of the viewport */
+  height: 10vh; /* Make the container take the full height of the viewport */
   display: flex;
   flex-direction: column;
 
