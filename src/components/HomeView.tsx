@@ -1,13 +1,14 @@
 
+
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import StyledButton from './styledcomponents/StyledButton';
 import { HomeContainer, ButtonContainer } from './styledcomponents/HomeViewStyles';
 import { useParams } from 'react-router-dom';
 import bannerImage from './Blue Gradient Header Banner.png';
-import './css/HomeView.css';
+import './css/HomeView.css'; // Keep your original CSS for custom styles
 
-
+// Import your custom StyledButton component
+import StyledButton from './styledcomponents/StyledButton';
 
 interface Client {
   id: number;
@@ -46,13 +47,12 @@ const HomeView: React.FC = () => {
   };
 
   return (
-    <HomeContainer >
+    <HomeContainer className="home-container">
+      <img src={bannerImage} alt="Banner" className="img-fluid" />
 
-     <img src={bannerImage} alt="Banner" className="banner-image" />
-     <div></div>
       <ButtonContainer className="home-button-container">
-        {/* Dropdown for selecting clients */}
-        <select value={selectedClient} onChange={handleSelectChange}>
+        {/* Adjust margin-top as per your preference for the button container */}
+        <select className="form-control" value={selectedClient} onChange={handleSelectChange}>
           <option value="">Select a Client</option>
           {clients.map((client) => (
             <option key={client.id} value={client.id}>
@@ -61,19 +61,14 @@ const HomeView: React.FC = () => {
           ))}
         </select>
 
-        {/* Link to Add New Client */}
         <Link to="/add-client">
-          <div className="box"></div>
-          <StyledButton>Add New Client</StyledButton>
+          <StyledButton className="btn btn-primary custom-button">Add New Client</StyledButton>
         </Link>
 
-        {/* Link to Generate Report */}
         <Link to="/create-report">
-          <div className="box"></div>
-          <StyledButton>Generate Report</StyledButton>
+          <StyledButton className="btn btn-primary custom-button">Generate Report</StyledButton>
         </Link>
       </ButtonContainer>
-
     </HomeContainer>
   );
 };

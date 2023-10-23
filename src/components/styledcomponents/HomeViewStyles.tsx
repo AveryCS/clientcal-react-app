@@ -6,7 +6,7 @@ export const HomeContainer = styled.div`
   height: 100vh; /* Make the container take the full height of the viewport */
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center vertically */
+
 `;
 
 export const ButtonContainer = styled.div`
