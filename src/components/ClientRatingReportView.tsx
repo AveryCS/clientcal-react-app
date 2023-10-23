@@ -71,14 +71,14 @@ const ClientRatingReportView: React.FC = () => {
   };
 
   return (
-    <div className="report-container">
-      <NavBar />
-      <div className="container-contents">
+    <div className="container report-container">
+      <NavBar/>
+      <div className="container-contents mt-5">
         <h2>Client Rating Report</h2>
         <label className="select-rating-container">
           Select Rating:
-          <select value={rating || ''} onChange={handleRatingChange}>
-            <option value="">Select Rating</option>
+          <select className="form-control w-100 h-100" value={rating || ''} onChange={handleRatingChange}>
+            <option  value="">Select Rating</option>
             
             {[...Array(10).keys()].map((num) => (
               <option key={num + 1} value={num + 1}>

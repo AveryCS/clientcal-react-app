@@ -1,7 +1,7 @@
 /* AddClientView.css */
 
 /* Container for the entire component */
-.add-client-container {
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +18,7 @@
   /* Error message styling */
   .error-message {
     color: #ddff56;
-    font-size: 30px;
+    font-size: 20px;
     margin-bottom: 20px;
   }
   

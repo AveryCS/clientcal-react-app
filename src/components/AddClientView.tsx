@@ -92,73 +92,90 @@ const AddClientView: React.FC = () => {
   };
 
   return (
-    <div>
-      <NavBar /> {/* Include the NavBar component */}
-      <div className="add-client-container">
-        {formError && <p className="error-message">{formError}</p>}
-        {clientExists ? (
-          <ClientExistsInDatabaseView />
-        ) : addedClientDetails ? (
-          <SuccessfulAddClientView clientDetails={addedClientDetails} />
-        ) : (
-          <div>
-            <h2>Add Client</h2>
-            <form onSubmit={handleSubmit}>
-              <label>
-                Name:
-                <input type="text" name="name" value={clientInfo.name} onChange={handleInputChange} required />
-              </label>
-              <label>
-                Hours Booked Per Year:
-                <input
-                  type="number"
-                  name="hoursBookedPerYear"
-                  value={clientInfo.hoursBookedPerYear}
-                  onChange={handleInputChange}
-                  required
-                />
-              </label>
-              <label>
-                Hourly Rate:
-                <input
-                  type="number"
-                  name="hourlyRate"
-                  value={clientInfo.hourlyRate}
-                  onChange={handleInputChange}
-                  required
-                />
-              </label>
-              <label>
-                Email:
-                <input
-                  type="email"
-                  name="email"
-                  value={clientInfo.email}
-                  onChange={handleInputChange}
-                  required
-                />
-              </label>
-              <label>
-                Ease To Work With:
-                <input
-                  type="number"
-                  name="easeToWorkWith"
-                  value={clientInfo.easeToWorkWith}
-                  onChange={handleInputChange}
-                  required
-                />
-              </label>
-              <button type="submit" className="add-button">
-                Add Client
-              </button>
-            </form>
-          </div>
-        )}
-      </div>
+
+<div className="container">
+
+  <div className="row justify-content-center">
+    <div className="col-md-12">
+      {formError && <p className="error-message mt-md-5">{formError}</p>}
+      {clientExists ? (
+        <ClientExistsInDatabaseView />
+      ) : addedClientDetails ? (
+        <SuccessfulAddClientView clientDetails={addedClientDetails} />
+      ) : (
+        <div>
+          <h2>Add Client</h2>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Name:
+              <input
+                type="text"
+                name="name"
+                value={clientInfo.name}
+                onChange={handleInputChange}
+                required
+                className="form-control"
+              />
+            </label>
+            <label>
+              Hours Booked Per Year:
+              <input
+                type="number"
+                name="hoursBookedPerYear"
+                value={clientInfo.hoursBookedPerYear}
+                onChange={handleInputChange}
+                required
+                className="form-control"
+              />
+            </label>
+            <label>
+              Hourly Rate:
+              <input
+                type="number"
+                name="hourlyRate"
+                value={clientInfo.hourlyRate}
+                onChange={handleInputChange}
+                required
+                className="form-control"
+              />
+            </label>
+            <label>
+              Email:
+              <input
+                type="email"
+                name="email"
+                value={clientInfo.email}
+                onChange={handleInputChange}
+                required
+                className="form-control"
+              />
+            </label>
+            <label>
+              Ease To Work With:
+              <input
+                type="number"
+                name="easeToWorkWith"
+                value={clientInfo.easeToWorkWith}
+                onChange={handleInputChange}
+                required
+                className="form-control"
+              />
+            </label>
+            <button type="submit" className="add-button">
+              Add Client
+            </button>
+          </form>
+        </div>
+      )}
     </div>
+  </div>
+</div>
+
   );
 };
 
 export default AddClientView;
+
+
 
 
