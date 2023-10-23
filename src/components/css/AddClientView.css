@@ -1,7 +1,7 @@
 /* AddClientView.css */
 
 /* Container for the entire component */
-.container {
+.container-add-client{
     display: flex;
     flex-direction: column;
     align-items: center;

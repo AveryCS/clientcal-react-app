@@ -93,7 +93,7 @@ const AddClientView: React.FC = () => {
 
   return (
 
-<div className="container">
+<div className="container-add-client">
 
   <div className="row justify-content-center">
     <div className="col-md-12">
