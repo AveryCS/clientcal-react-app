@@ -98,17 +98,18 @@ const SingleClientView: React.FC = () => {
     }
   };
   return (
-    <div className="container">
+    // <div className="container" >
+    <div className="container" style={{ backgroundColor: '#3498db' }}>
       <NavBar />
       <div className="container mt-5 d-flex justify-content-start align-items-center" style={{ minHeight: '100vh' }}>
         <div className="single-client-view">
-          <div className="client-profile-header">
-            <h2>{client?.name}'s Profile</h2>
-            <p className="client-rating">Client Rating: {client?.clientRating}</p>
+        <div className="client-profile-header text-white">
+            <h2 className="mb-5">{client?.name}'s Profile</h2>
+            <h3 className="client-rating">Client Rating: {client?.clientRating}</h3>
           </div>
-          <div className="row mb-2">
-            <div className="editable-field d-flex justify-content-between align-items-center mb-3">
-              <label className="label">Hours Booked Per Year:</label>
+          <div className="row mb-2 border border-primary">
+            <div className="editable-field d-flex justify-content-between align-items-center mb-3 rounded" style={{ backgroundColor: '#ffffff' }}>
+              <label className="label m-4">Hours Booked Per Year:</label>
               {editMode.hoursBookedPerYear ? (
                 <div className="input-container d-flex align-items-center">
                   <input
@@ -128,15 +129,15 @@ const SingleClientView: React.FC = () => {
               ) : (
                 <div className="view-mode d-flex align-items-center">
                   <span className="input">{client?.hoursBookedPerYear}</span>
-                  <button className="btn btn-primary ml-5" onClick={() => toggleEditMode('hoursBookedPerYear')}>
+                  <button className="btn btn-primary ml-5" style={{ backgroundColor: '#145Da0' }}onClick={() => toggleEditMode('hoursBookedPerYear')}>
                     Edit
                   </button>
                 </div>
               )}
             </div>
   
-            <div className="editable-field justify-content-between d-flex mb-3">
-              <label className="label">Hourly Rate:</label>
+            <div className="editable-field justify-content-between d-flex mb-3 rounded" style={{ backgroundColor: '#ffffff' }}>
+              <label className="label m-4">Hourly Rate:</label>
               {editMode.hourlyRate ? (
                 <div className="input-container d-flex align-items-center">
                   <input
@@ -156,15 +157,15 @@ const SingleClientView: React.FC = () => {
               ) : (
                 <div className="view-mode d-flex align-items-center">
                   <span className="input">{client?.hourlyRate}</span>
-                  <button className="btn btn-primary ml-5" onClick={() => toggleEditMode('hourlyRate')}>
+                  <button className="btn btn-primary ml-5" style={{ backgroundColor: '#145Da0' }} onClick={() => toggleEditMode('hourlyRate')}>
                     Edit
                   </button>
                 </div>
               )}
             </div>
   
-            <div className="editable-field d-flex justify-content-between align-items-center mb-3">
-              <label className="label">Ease to Work With:</label>
+            <div className="editable-field d-flex justify-content-between align-items-center mb-3 rounded" style={{ backgroundColor: '#ffffff' }}>
+              <label className="label m-4">Ease to Work With:</label>
               {editMode.easeToWorkWith ? (
                 <div className="input-container d-flex align-items-center">
                   <input
@@ -184,15 +185,15 @@ const SingleClientView: React.FC = () => {
               ) : (
                 <div className="view-mode d-flex align-items-center">
                   <span className="input">{client?.easeToWorkWith}</span>
-                  <button className="btn btn-primary ml-5" onClick={() => toggleEditMode('easeToWorkWith')}>
+                  <button className="btn btn-primary ml-5" style={{ backgroundColor: '#145Da0' }}onClick={() => toggleEditMode('easeToWorkWith')}>
                     Edit
                   </button>
                 </div>
               )}
             </div>
   
-            <div className="editable-field d-flex justify-content-between align-items-center">
-              <label className="label">Email:</label>
+<div className="editable-field d-flex justify-content-between align-items-center rounded" style={{ backgroundColor: '#ffffff' }}>
+              <label className="label m-4">Email:</label>
               <div className="view-mode d-flex align-items-center">
                 <span className="input">{client?.email}</span>
               </div>
