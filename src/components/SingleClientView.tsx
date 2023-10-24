@@ -117,10 +117,10 @@ const SingleClientView: React.FC = () => {
                     onChange={(e) => handleTempChange('hoursBookedPerYear', e.target.value)}
                   />
                   <div className="buttons-container d-flex align-items-center">
-                    <button className="btn btn-success" onClick={() => handleSave('hoursBookedPerYear', tempChanges.hoursBookedPerYear as number)}>
+                    <button className="btn btn-success ml-1" onClick={() => handleSave('hoursBookedPerYear', tempChanges.hoursBookedPerYear as number)}>
                       Save
                     </button>
-                    <button className="btn btn-secondary" onClick={() => toggleEditMode('hoursBookedPerYear')}>
+                    <button className="btn btn-secondary ml-1" onClick={() => toggleEditMode('hoursBookedPerYear')}>
                       Cancel
                     </button>
                   </div>
@@ -145,10 +145,10 @@ const SingleClientView: React.FC = () => {
                     onChange={(e) => handleTempChange('hourlyRate', e.target.value)}
                   />
                   <div className="buttons-container d-flex align-items-center">
-                    <button className="btn btn-success" onClick={() => handleSave('hourlyRate', tempChanges.hourlyRate as number)}>
+                    <button className="btn btn-success ml-1" onClick={() => handleSave('hourlyRate', tempChanges.hourlyRate as number)}>
                       Save
                     </button>
-                    <button className="btn btn-secondary" onClick={() => toggleEditMode('hourlyRate')}>
+                    <button className="btn btn-secondary ml-1" onClick={() => toggleEditMode('hourlyRate')}>
                       Cancel
                     </button>
                   </div>
@@ -173,10 +173,10 @@ const SingleClientView: React.FC = () => {
                     onChange={(e) => handleTempChange('easeToWorkWith', e.target.value)}
                   />
                   <div className="buttons-container d-flex align-items-center">
-                    <button className="btn btn-success" onClick={() => handleSave('easeToWorkWith', tempChanges.easeToWorkWith as number)}>
+                    <button className="btn btn-success ml-1" onClick={() => handleSave('easeToWorkWith', tempChanges.easeToWorkWith as number)}>
                       Save
                     </button>
-                    <button className="btn btn-secondary" onClick={() => toggleEditMode('easeToWorkWith')}>
+                    <button className="btn btn-secondary ml-1" onClick={() => toggleEditMode('easeToWorkWith')}>
                       Cancel
                     </button>
                   </div>
