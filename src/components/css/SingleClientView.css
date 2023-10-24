@@ -1,4 +1,4 @@
-/* SingleClientView.css */
+/* SingleClientView.css
 .single-client-view {
   display: flex;
   flex-direction: column;
@@ -18,13 +18,13 @@
   display: flex;
   flex-direction: row;
   /* align-items: center; */
-  justify-content: space-evenly;
+  /* justify-content: space-evenly;
   margin-bottom: 30px;
   padding-bottom: 20px;
   align-items: last baseline;
 
-}
-
+} */
+/* 
 .label {
   font-size: 18px;
   margin-right: 5px;
@@ -32,14 +32,13 @@
 
 .input-container {
   display: flex;
-  align-items: center; /* Adjusted to align items horizontally */
-  /* padding-right: 300px; */
+  align-items: center; 
 }
 
 .input-field {
   width: 100%;
   padding: 8px;
-  margin-right: 8px; /* Adjusted margin-right for spacing */
+  margin-right: 8px; 
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -47,19 +46,19 @@
 .buttons-container {
   display: flex;
   align-items: center; /* Adjusted to align items horizontally */
-  justify-content: space-between
-  
-}
+  /* justify-content: space-between */
+/*   
+} */ 
 
-button {
+/* button {
   background-color: #4caf50;
   color: white;
   border: none;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: 5px; /* Adjusted margin-left for spacing */
-}
+  margin-left: 5px; Adjusted margin-left for spacing */
+/* }
 
 .success-message {
   color: green;
@@ -79,14 +78,14 @@ button {
 .input{
   padding-right: 30px;
   padding-left: 30px
-}
-
+} */
+/* 
 .client-rating{
 color: green;
 font-size: 30px;
 }
 .error-message-single-client {
-  color: red; /* or any other color you prefer */
-  margin-top: 10px;
+  color: red; or any other color you prefer */
+  /* margin-top: 10px;
   font-size: 18px;
-}
+} */ 
