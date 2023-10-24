@@ -39,6 +39,12 @@ const AddClientView: React.FC = () => {
       return;
     }
 
+    const hoursBookedPerYear = Number(clientInfo.hoursBookedPerYear);
+    if (!Number.isInteger(hoursBookedPerYear)) {
+      setFormError('Hours booked per year must be a whole number');
+      return;
+    }
+
     const hourlyRate = Number(clientInfo.hourlyRate);
     if (!Number.isInteger(hourlyRate)) {
       setFormError('Hourly rate must be a whole number');
@@ -110,6 +116,11 @@ const AddClientView: React.FC = () => {
       ) : (
         <div>
           <h2>Add Client</h2>
+          {/* {formError && (
+    <div className="error-message" style={{ color: 'yellow' }}>
+      {formError}
+    </div>
+  )} */}
           <form onSubmit={handleSubmit}>
             <label>
               Name:
