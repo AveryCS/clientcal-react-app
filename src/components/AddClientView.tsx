@@ -58,7 +58,7 @@ const AddClientView: React.FC = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/client', {
+      const response = await fetch('http://clientcal-backend-env.eba-asnhtabk.us-east-2.elasticbeanstalk.com/client', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

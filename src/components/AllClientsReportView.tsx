@@ -107,6 +107,7 @@ const AllClientsReportView: React.FC = () => {
         )}
 
         {clients.length > 0 && (
+           <div className="table-container">
           <table className="table">
             <thead>
               <tr>
@@ -147,6 +148,7 @@ const AllClientsReportView: React.FC = () => {
               ))}
             </tbody>
           </table>
+          </div>
         )}
 
         <div className="button-container">
