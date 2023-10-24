@@ -65,6 +65,7 @@ const SingleClientView: React.FC = () => {
       if (field === 'easeToWorkWith') {
         const easeToWorkWithValue = Number(value);
         if (!Number.isInteger(easeToWorkWithValue) || easeToWorkWithValue < 1 || easeToWorkWithValue > 10) {
+          console.log("error");
           setError('Ease to Work With should be a whole number between 1 and 10');
           setTempChanges({}); // Revert temporary changes
           setEditMode((prev) => ({ ...prev, [field]: false })); // Revert edit mode
@@ -89,7 +90,7 @@ const SingleClientView: React.FC = () => {
         setClient(updatedClient);
       } else {
         console.error(`Failed to update ${field}`);
-        setError('Failed to update. Please try again.');
+        setError('Failed to update- must be a whole number. Please try again.');
         setTempChanges({}); // Revert temporary changes
         setEditMode((prev) => ({ ...prev, [field]: false })); // Revert edit mode
       }
@@ -105,6 +106,11 @@ const SingleClientView: React.FC = () => {
         <div className="single-client-view">
         <div className="client-profile-header text-white">
             <h2 className="mb-5">{client?.name}'s Profile</h2>
+            {error && (
+    <div className="error-message" style={{ color: 'yellow' }}>
+      {error}
+    </div>
+  )}
             <h3 className="client-rating">Client Rating: {client?.clientRating}</h3>
           </div>
           <div className="row mb-2 border border-primary">
@@ -135,7 +141,7 @@ const SingleClientView: React.FC = () => {
                 </div>
               )}
             </div>
-  
+        
             <div className="editable-field justify-content-between d-flex mb-3 rounded" style={{ backgroundColor: '#ffffff' }}>
               <label className="label m-4">Hourly Rate:</label>
               {editMode.hourlyRate ? (
@@ -163,7 +169,7 @@ const SingleClientView: React.FC = () => {
                 </div>
               )}
             </div>
-  
+          
             <div className="editable-field d-flex justify-content-between align-items-center mb-3 rounded" style={{ backgroundColor: '#ffffff' }}>
               <label className="label m-4">Ease to Work With:</label>
               {editMode.easeToWorkWith ? (
@@ -198,6 +204,8 @@ const SingleClientView: React.FC = () => {
                 <span className="input">{client?.email}</span>
               </div>
             </div>
+
+            
           </div>
         </div>
       </div>
