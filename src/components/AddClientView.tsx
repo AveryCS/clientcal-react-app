@@ -92,8 +92,13 @@ const AddClientView: React.FC = () => {
   };
 
   return (
-
+    <div className="container-fluid">
+   <div className="d-flex justify-content-center">
+      <NavBar />
+    </div>
+  
 <div className="container-add-client">
+
 
   <div className="row justify-content-center">
     <div className="col-md-12">
@@ -170,7 +175,7 @@ const AddClientView: React.FC = () => {
     </div>
   </div>
 </div>
-
+</div>
   );
 };
 
