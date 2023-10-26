@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import bannerImage from './Blue Gradient Header Banner.png';
 import './css/HomeView.css'; // Keep your original CSS for custom styles
 import StyledButton from './styledcomponents/StyledButton';
+import apiConfig from './ApiConfig';
 
 interface Client {
   id: number;
@@ -21,7 +22,7 @@ const HomeView: React.FC = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const response = await fetch('http://localhost:8080/clients');
+        const response = await fetch(`${apiConfig.backendUrl}/clients` );
         const data = await response.json();
         setClients(data);
       } catch (error) {

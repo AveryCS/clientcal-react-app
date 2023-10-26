@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
 import './css/ClientRatingReportView.css';
+import apiConfig from './ApiConfig';
 
 interface Client {
   id: number;
@@ -25,7 +26,7 @@ const ClientRatingReportView: React.FC = () => {
     const fetchClientsByRating = async () => {
       try {
         if (rating !== null) {
-          const response = await fetch(`http://localhost:8080/clients?rating=${rating}`);
+          const response = await fetch(`${apiConfig.backendUrl}/clients?rating=${rating}`);
           if (response.ok) {
             const clientList: Client[] = await response.json();
             if (clientList.length === 0) {

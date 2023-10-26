@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import NavBar from './NavBar';
 import './css/SingleClientView.css';
+import apiConfig from './ApiConfig';
 
 interface Client {
   id: number;
@@ -31,7 +32,7 @@ const SingleClientView: React.FC = () => {
   useEffect(() => {
     const fetchClient = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/client/${id}`);
+        const response = await fetch(`${apiConfig.backendUrl}/client/${id}`);
         const data = await response.json();
         setClient(data);
       } catch (error) {
@@ -76,7 +77,7 @@ const SingleClientView: React.FC = () => {
       // Ensure tempChanges[field] is a number, providing a default value of 0 if it's undefined
       const tempFieldValue = tempChanges[field] !== undefined ? Number(tempChanges[field]) : 0;
 
-      const response = await fetch(`http://localhost:8080/client/${id}/${field}/${tempFieldValue}`, {
+      const response = await fetch(`${apiConfig.backendUrl}/client/${id}/${field}/${tempFieldValue}`, {
         method: 'PATCH',
       });
 
@@ -84,7 +85,7 @@ const SingleClientView: React.FC = () => {
         setSuccessMessage(`Successfully updated ${field}`);
         toggleEditMode(field);
 
-        const updatedResponse = await fetch(`http://localhost:8080/client/${id}`);
+        const updatedResponse = await fetch(`${apiConfig.backendUrl}/client/${id}`);
         updatedClient = await updatedResponse.json();
 
         setClient(updatedClient);

@@ -8,6 +8,7 @@ import SuccessfulAddClientView from './SuccessfulAddClientView';
 import ClientExistsInDatabaseView from './ClientExistsInDatabaseView';
 import NavBar from './NavBar'; // Import the NavBar component
 import './css/AddClientView.css';
+import apiConfig from './ApiConfig';
 
 const AddClientView: React.FC = () => {
   const [clientInfo, setClientInfo] = useState({
@@ -64,7 +65,9 @@ const AddClientView: React.FC = () => {
     }
 
     try {
-      const response = await fetch('http://clientcal-backend-env.eba-asnhtabk.us-east-2.elasticbeanstalk.com/client', {
+      console.log(`${apiConfig.backendUrl}/client`);
+      const response = await fetch(`${apiConfig.backendUrl}/client`, {
+      
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

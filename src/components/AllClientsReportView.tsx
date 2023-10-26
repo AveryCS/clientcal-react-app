@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from './NavBar';
 import './css/AllClientsReportView.css';
+import apiConfig from './ApiConfig';
 
 interface Client {
   id: number;
@@ -24,7 +25,7 @@ const AllClientsReportView: React.FC = () => {
   useEffect(() => {
     const fetchAllClients = async () => {
       try {
-        const response = await fetch('http://localhost:8080/clients');
+        const response = await fetch(`${apiConfig.backendUrl}/clients`);
         if (response.ok) {
           const clientList: Client[] = await response.json();
           if (clientList.length === 0) {
