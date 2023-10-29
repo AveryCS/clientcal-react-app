@@ -1,12 +1,9 @@
 
-
-
-// AddClientView.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SuccessfulAddClientView from './SuccessfulAddClientView';
 import ClientExistsInDatabaseView from './ClientExistsInDatabaseView';
-import NavBar from './NavBar'; // Import the NavBar component
+import NavBar from './NavBar'; 
 import './css/AddClientView.css';
 import apiConfig from './ApiConfig';
 
@@ -21,7 +18,7 @@ const AddClientView: React.FC = () => {
 
   const [formError, setFormError] = useState('');
   const [addedClientDetails, setAddedClientDetails] = useState(null);
-  const [clientExists, setClientExists] = useState(false); // State to track whether the client exists
+  const [clientExists, setClientExists] = useState(false); 
   const navigate = useNavigate();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -90,7 +87,6 @@ const AddClientView: React.FC = () => {
         });
         setFormError('');
       } else if (response.status === 409) {
-        // Client already exists, set the state to true
         setClientExists(true);
       } else {
         console.error('Failed to add client');
@@ -119,11 +115,6 @@ const AddClientView: React.FC = () => {
       ) : (
         <div>
           <h2>Add Client</h2>
-          {/* {formError && (
-    <div className="error-message" style={{ color: 'yellow' }}>
-      {formError}
-    </div>
-  )} */}
           <form onSubmit={handleSubmit}>
             <label>
               Name:
