@@ -86,6 +86,7 @@ const AddClientView: React.FC = () => {
           easeToWorkWith: 0,
         });
         setFormError('');
+        navigate('/successful-add-client', { state: { clientDetails: addedClientDetails } });
       } else if (response.status === 409) {
         setClientExists(true);
       } else {
