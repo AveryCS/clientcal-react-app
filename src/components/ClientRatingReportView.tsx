@@ -127,9 +127,6 @@ const ClientRatingReportView: React.FC = () => {
           <button className="button" onClick={handlePrintReport}>
             Print / Download Report
           </button>
-          {/* <button className="button" onClick={handleDownloadReport}>
-            Download Report
-          </button> */}
         </div>
       </div>
     </div>

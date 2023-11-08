@@ -52,7 +52,7 @@ const SingleClientView: React.FC = () => {
     }));
     setSuccessMessage(null);
     setError(null);
-    setTempChanges({}); // Reset temporary changes when entering edit mode
+    setTempChanges({}); 
   };
 
   const handleTempChange = (field: EditableFields, value: string | number) => {
@@ -74,7 +74,7 @@ const SingleClientView: React.FC = () => {
         }
       }
 
-      // Ensure tempChanges[field] is a number, providing a default value of 0 if it's undefined
+      
       const tempFieldValue = tempChanges[field] !== undefined ? Number(tempChanges[field]) : 0;
 
       const response = await fetch(`${apiConfig.backendUrl}/client/${id}/${field}/${tempFieldValue}`, {
@@ -92,15 +92,15 @@ const SingleClientView: React.FC = () => {
       } else {
         console.error(`Failed to update ${field}`);
         setError('Failed to update- must be a whole number. Please try again.');
-        setTempChanges({}); // Revert temporary changes
-        setEditMode((prev) => ({ ...prev, [field]: false })); // Revert edit mode
+        setTempChanges({}); 
+        setEditMode((prev) => ({ ...prev, [field]: false })); 
       }
     } catch (error) {
       console.error(`Error updating ${field}:`, error);
     }
   };
   return (
-    // <div className="container" >
+
     <div className="container" style={{ backgroundColor: '#3498db' }}>
       <NavBar />
       <div className="container mt-5 d-flex justify-content-start align-items-center" style={{ minHeight: '100vh' }}>

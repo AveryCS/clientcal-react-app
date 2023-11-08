@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { HomeContainer } from './styledcomponents/HomeViewStyles'; // Import HomeContainer
+import { HomeContainer } from './styledcomponents/HomeViewStyles'; 
 import { useParams } from 'react-router-dom';
 import bannerImage from './Blue Gradient Header Banner.png';
-import './css/HomeView.css'; // Keep your original CSS for custom styles
+import './css/HomeView.css'; 
 import StyledButton from './styledcomponents/StyledButton';
 import apiConfig from './ApiConfig';
 
 interface Client {
   id: number;
   name: string;
-  // Add other properties if needed
+  
 }
 
 const HomeView: React.FC = () => {
